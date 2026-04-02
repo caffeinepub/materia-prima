@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* Dark navy/gold palette for Materia Prima */
+    /* Background: deep navy #0B1220 */
+    --background: 0.138 0.025 255;
+    /* Foreground: warm off-white */
+    --foreground: 0.94 0.01 85;
+
+    /* Card: slightly lighter navy */
+    --card: 0.165 0.022 255;
+    --card-foreground: 0.94 0.01 85;
+
+    --popover: 0.19 0.025 255;
+    --popover-foreground: 0.94 0.01 85;
+
+    /* Primary: gold #D8C28A */
+    --primary: 0.82 0.08 85;
+    --primary-foreground: 0.13 0.025 255;
+
+    /* Secondary: muted navy */
+    --secondary: 0.22 0.025 255;
+    --secondary-foreground: 0.85 0.01 85;
+
+    --muted: 0.22 0.02 255;
+    --muted-foreground: 0.65 0.015 85;
+
+    /* Accent: warm amber/copper #C58B4A */
+    --accent: 0.72 0.11 55;
+    --accent-foreground: 0.985 0 0;
+
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    /* Border: subtle gold tint */
+    --border: 0.3 0.03 255;
+    --input: 0.25 0.025 255;
+    --ring: 0.82 0.08 85;
+
+    --chart-1: 0.82 0.08 85;
+    --chart-2: 0.72 0.11 55;
+    --chart-3: 0.6 0.07 200;
+    --chart-4: 0.5 0.1 160;
+    --chart-5: 0.65 0.09 30;
+
+    --sidebar: 0.165 0.022 255;
+    --sidebar-foreground: 0.94 0.01 85;
+    --sidebar-primary: 0.82 0.08 85;
+    --sidebar-primary-foreground: 0.13 0.025 255;
+    --sidebar-accent: 0.22 0.025 255;
+    --sidebar-accent-foreground: 0.85 0.01 85;
+    --sidebar-border: 0.3 0.03 255;
+    --sidebar-ring: 0.82 0.08 85;
+
+    /* Custom brand tokens */
+    --gold: 0.82 0.08 85;
+    --gold-light: 0.88 0.06 85;
+    --gold-dark: 0.65 0.1 75;
+    --copper: 0.68 0.13 55;
+    --navy-deep: 0.1 0.022 260;
+    --navy-mid: 0.165 0.022 255;
+    --navy-light: 0.22 0.025 255;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "DM Sans", sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Playfair Display", serif;
+  }
+}
+
+@layer utilities {
+  .text-gold {
+    color: oklch(var(--gold));
+  }
+  .text-gold-light {
+    color: oklch(var(--gold-light));
+  }
+  .bg-navy-deep {
+    background-color: oklch(var(--navy-deep));
+  }
+  .bg-navy-mid {
+    background-color: oklch(var(--navy-mid));
+  }
+  .bg-navy-light {
+    background-color: oklch(var(--navy-light));
+  }
+  .border-gold {
+    border-color: oklch(var(--gold) / 0.4);
+  }
+  .font-serif-display {
+    font-family: "Playfair Display", serif;
+  }
+  .font-body {
+    font-family: "DM Sans", sans-serif;
+  }
+}
