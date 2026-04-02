@@ -52,11 +52,20 @@ actor {
       imageUrl = "/assets/platone_e_aristotele-019d4f1a-35fd-728d-82ea-4f3a9d2b7cb5.jpg";
       publicationDate = "2024-03-20";
     };
+    let article4 : Article = {
+      id = 4;
+      title = "Dare la Colpa all'Esterno";
+      excerpt = "Dare la colpa delle nostre malattie croniche a fattori esclusivamente esterni \u{E8} riduttivo. La radice del dolore \u{E8} interiore.";
+      content = "<p>Dare la colpa delle nostre malattie croniche a fattori esclusivamente esterni \u{E8} riduttivo. Si punta il dito contro lo zucchero, i grassi, i batteri, i virus e cos\u{EC} via, ma si dimentica di guardare dentro di s\u{E9}.</p><p>Certo, lo zucchero consumato in eccesso \u{E8} dannoso per il corpo umano e va limitato. Lo stesso vale per gli alimenti eccessivamente raffinati, che nuocciono alla salute. Un virus pu\u{F2} danneggiare il nostro organismo e comprometterne il funzionamento: questi aspetti vanno riconosciuti e curati.</p><p>Ci\u{F2} che per\u{F2} viene spesso trascurato \u{E8} la nostra dimensione interiore. Siamo noi stessi, infatti, con i nostri pensieri &#8212; e con le intense emozioni a essi legate &#8212; a innescare, in buona parte, le nostre malattie croniche. L&#8217;alimentazione, i virus, i batteri e altri agenti esterni agiscono certamente come concause, ma non toccano la radice del dolore.</p><p>Raramente ci soffermiamo sui pensieri che facciamo e che generano reazioni &#8220;sgradevoli&#8221; nel corpo. Questi pensieri o ci spaventano, o li ignoriamo dicendo frasi del tipo: &#8220;Meglio non pensarci&#8221;. In questo modo, per\u{F2}, escludiamo una parte di noi stessi. Quei pensieri che rifiutiamo sono presenti per un motivo: vogliono comunicarci qualcosa. Non ascoltarli \u{E8} controproducente, perch\u{E9} anch&#8217;essi appartengono a noi.</p><p>Il fisico David Bohm utilizza un&#8217;efficace analogia per spiegare questa dinamica: cos\u{EC} come il ginocchio si distende in modo riflesso quando viene colpito &#8212; quasi senza che ce ne accorgiamo &#8212; allo stesso modo alcuni pensieri scatenano nel corpo reazioni dolorose o disagio, senza che ne siamo consapevoli. Per Bohm, la propriocezione psichica consiste proprio nel portare questi pensieri alla coscienza.</p><blockquote><p>Tutto nasce dall&#8217;interno, come dal seme si sviluppa la pianta.<br/>&#8212; Giordano Bruno</p></blockquote>";
+      imageUrl = "/assets/thinking_creates_reality-019d4fd3-8b57-7450-a008-82d2ad6ddae6.jpg";
+      publicationDate = "2024-04-02";
+    };
 
     articles.add(1, article1);
     articles.add(2, article2);
     articles.add(3, article3);
-    nextId := 4;
+    articles.add(4, article4);
+    nextId := 5;
   };
 
   public shared func saveArticle(title : Text, excerpt : Text, content : Text, imageUrl : Text, publicationDate : Text) : async Nat {
