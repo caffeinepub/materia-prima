@@ -1,9 +1,7 @@
-import { Skeleton } from "@/components/ui/skeleton";
 import { Link } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
-import type { Article } from "../backend.d";
 import ArticleCard from "../components/ArticleCard";
-import { useGetArticles } from "../hooks/useQueries";
+import { ARTICLES } from "../data/articles";
 
 const HERO_BG =
   "/assets/a-mountain-torrent-william-james-muller-oil-painting-019d4f1a-3e37-738c-b841-6ec51291a21e.jpg";
@@ -28,6 +26,14 @@ const featureImages = [
     description: "La presenza oltre la materia",
   },
 ];
+
+const latestArticles = [...ARTICLES]
+  .sort(
+    (a, b) =>
+      new Date(b.publicationDate).getTime() -
+      new Date(a.publicationDate).getTime(),
+  )
+  .slice(0, 3);
 
 function useFadeIn(ref: React.RefObject<HTMLElement | null>) {
   useEffect(() => {
@@ -67,18 +73,6 @@ function FadeSection({
 }
 
 export default function HomePage() {
-  const { data: articles, isLoading } = useGetArticles();
-
-  const latestArticles: Article[] = articles
-    ? [...articles]
-        .sort((a, b) => {
-          const dateA = new Date(a.publicationDate).getTime() || 0;
-          const dateB = new Date(b.publicationDate).getTime() || 0;
-          return dateB - dateA;
-        })
-        .slice(0, 3)
-    : [];
-
   return (
     <div>
       {/* HERO */}
@@ -271,44 +265,13 @@ export default function HomePage() {
             </div>
           </FadeSection>
 
-          {isLoading ? (
-            <div
-              className="grid grid-cols-1 md:grid-cols-3 gap-8"
-              data-ocid="articles.loading_state"
-            >
-              {[1, 2, 3].map((i) => (
-                <div
-                  key={i}
-                  className="bg-card rounded-lg overflow-hidden border border-border"
-                >
-                  <Skeleton className="aspect-[16/9] w-full" />
-                  <div className="p-5 space-y-3">
-                    <Skeleton className="h-3 w-24" />
-                    <Skeleton className="h-5 w-full" />
-                    <Skeleton className="h-4 w-4/5" />
-                    <Skeleton className="h-4 w-2/3" />
-                  </div>
-                </div>
-              ))}
-            </div>
-          ) : latestArticles.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {latestArticles.map((article, i) => (
-                <FadeSection key={article.id.toString()}>
-                  <ArticleCard article={article} index={i + 1} />
-                </FadeSection>
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-20" data-ocid="articles.empty_state">
-              <p className="font-serif text-2xl text-muted-foreground mb-3">
-                In preparazione
-              </p>
-              <p className="font-body text-sm text-muted-foreground/70">
-                I primi articoli saranno pubblicati presto.
-              </p>
-            </div>
-          )}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {latestArticles.map((article, i) => (
+              <FadeSection key={article.id.toString()}>
+                <ArticleCard article={article} index={i + 1} />
+              </FadeSection>
+            ))}
+          </div>
 
           <div className="md:hidden mt-8 text-center">
             <Link

@@ -1,48 +1,16 @@
-import { Skeleton } from "@/components/ui/skeleton";
 import { Link, useParams } from "@tanstack/react-router";
 import { useEffect } from "react";
-import { useGetArticle } from "../hooks/useQueries";
-
-const articleImages = [
-  "/assets/galileo-019d4f1a-3400-72db-a6ff-73b0de927ee3.jpg",
-  "/assets/krishnamurti-019d4f1a-342a-74ac-8069-fd67be86f05b.jpg",
-  "/assets/david_bohm-019d4f1a-35fa-733a-ac8c-1a6590c2feb6.jpg",
-  "/assets/platone_e_aristotele-019d4f1a-35fd-728d-82ea-4f3a9d2b7cb5.jpg",
-  "/assets/aristotele-019d4f1a-3610-77dd-b9d1-1b4c1353ec03.jpg",
-  "/assets/cristo_in_croce-019d4f1a-38f1-76cf-bf15-2d6af937e66b.jpg",
-];
+import { ARTICLES } from "../data/articles";
 
 export default function ArticoloPage() {
   const { id } = useParams({ from: "/articoli/$id" });
-  const articleId = BigInt(id);
-  const { data: article, isLoading, isError } = useGetArticle(articleId);
+  const article = ARTICLES.find((a) => a.id === BigInt(id));
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
-  const imgIndex = Number(articleId) % articleImages.length;
-  const fallbackImage = articleImages[imgIndex];
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen pt-16" data-ocid="article.loading_state">
-        <div className="max-w-3xl mx-auto px-6 py-20">
-          <Skeleton className="h-8 w-48 mb-8" />
-          <Skeleton className="aspect-[16/9] w-full rounded-lg mb-8" />
-          <Skeleton className="h-10 w-3/4 mb-4" />
-          <Skeleton className="h-4 w-1/3 mb-8" />
-          <div className="space-y-3">
-            {[1, 2, 3, 4, 5].map((i) => (
-              <Skeleton key={i} className="h-4 w-full" />
-            ))}
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (isError || !article) {
+  if (!article) {
     return (
       <div
         className="min-h-screen pt-16 flex items-center justify-center"
@@ -53,7 +21,8 @@ export default function ArticoloPage() {
             Articolo non trovato
           </p>
           <p className="font-body text-sm text-muted-foreground/70 mb-8">
-            L&#39;articolo che cerchi non esiste o non è più disponibile.
+            L&#39;articolo che cerchi non esiste o non &#232; pi&#249;
+            disponibile.
           </p>
           <Link
             to="/articoli"
@@ -67,10 +36,6 @@ export default function ArticoloPage() {
     );
   }
 
-  const imageUrl = article.title.toLowerCase().includes("castaneda")
-    ? "/assets/vedere_castaneda-019d4f4a-882e-714b-8a2a-3edfde0ef19f.jpg"
-    : article.imageUrl || fallbackImage;
-
   const formattedDate = article.publicationDate
     ? new Date(article.publicationDate).toLocaleDateString("it-IT", {
         year: "numeric",
@@ -82,15 +47,12 @@ export default function ArticoloPage() {
   return (
     <div className="min-h-screen pt-16">
       {/* Article Hero */}
-      {imageUrl && (
+      {article.imageUrl && (
         <div className="relative h-72 md:h-96 overflow-hidden">
           <img
-            src={imageUrl}
+            src={article.imageUrl}
             alt={article.title}
             className="w-full h-full object-cover"
-            onError={(e) => {
-              (e.target as HTMLImageElement).src = fallbackImage;
-            }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
         </div>
@@ -159,7 +121,7 @@ export default function ArticoloPage() {
             <div dangerouslySetInnerHTML={{ __html: article.content }} />
           ) : (
             <p className="text-muted-foreground">
-              Il contenuto di questo articolo sarà presto disponibile.
+              Il contenuto di questo articolo sar&#224; presto disponibile.
             </p>
           )}
         </div>
