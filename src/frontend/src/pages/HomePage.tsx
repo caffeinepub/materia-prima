@@ -11,18 +11,21 @@ const featureImages = [
     alt: "Intuizione",
     caption: "L'Intuizione",
     description: "La scintilla che precede le forze formative del pensiero",
+    link: null,
   },
   {
     src: "/assets/dall_e_2024-11-16_18.12.01_-_un_immagine_concettuale_che_rappresenta_l_unit_tra_mente_sensi_e_spirit-019d4f1a-3b0b-71bc-ae39-940b38606101.webp",
     alt: "Unità mente corpo",
     caption: "L'Unità",
     description: "Mente e corpo come un unico tutto",
+    link: "/articoli/4",
   },
   {
     src: "/assets/dio-019d4f1a-45aa-716f-90d9-8666862f85e5.png",
     alt: "Il Divino",
     caption: "Il Divino",
     description: "L'archetipo o Idea che permea la realtà",
+    link: null,
   },
 ];
 
@@ -166,9 +169,11 @@ export default function HomePage() {
           </FadeSection>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
-            {featureImages.map((img) => (
-              <FadeSection key={img.alt}>
-                <div className="group relative overflow-hidden rounded-lg bg-card border border-border hover:border-gold/40 transition-all duration-300 hover:shadow-card-dark">
+            {featureImages.map((img) => {
+              const cardContent = (
+                <div
+                  className={`group relative overflow-hidden rounded-lg bg-card border border-border transition-all duration-300 hover:shadow-card-dark ${img.link ? "hover:border-gold/60 cursor-pointer" : "hover:border-gold/40"}`}
+                >
                   <div className="aspect-[4/3] overflow-hidden">
                     <img
                       src={img.src}
@@ -177,16 +182,33 @@ export default function HomePage() {
                     />
                   </div>
                   <div className="p-4 sm:p-5">
-                    <h3 className="font-serif text-xl text-gold mb-1">
+                    <h3
+                      className={`font-serif text-xl mb-1 ${img.link ? "text-gold group-hover:text-gold-light transition-colors" : "text-gold"}`}
+                    >
                       {img.caption}
+                      {img.link && (
+                        <span className="ml-2 text-sm opacity-60">→</span>
+                      )}
                     </h3>
                     <p className="font-body text-sm text-muted-foreground leading-relaxed">
                       {img.description}
                     </p>
                   </div>
                 </div>
-              </FadeSection>
-            ))}
+              );
+
+              return (
+                <FadeSection key={img.alt}>
+                  {img.link ? (
+                    <Link to={img.link as "/articoli/$id"} params={{ id: "4" }}>
+                      {cardContent}
+                    </Link>
+                  ) : (
+                    cardContent
+                  )}
+                </FadeSection>
+              );
+            })}
           </div>
         </div>
       </section>
