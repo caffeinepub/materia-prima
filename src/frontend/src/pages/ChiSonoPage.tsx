@@ -9,7 +9,7 @@ export default function ChiSonoPage() {
     <div className="min-h-screen pt-16">
       {/* Hero Banner */}
       <div
-        className="relative py-32 text-center"
+        className="relative py-24 sm:py-32 text-center"
         style={{
           backgroundImage:
             "url(/assets/sole-019d4fd8-9260-763a-a83a-4972d48d5444.png)",
@@ -18,11 +18,11 @@ export default function ChiSonoPage() {
         }}
       >
         <div className="absolute inset-0 bg-navy-deep/75" />
-        <div className="relative z-10 max-w-2xl mx-auto px-6">
+        <div className="relative z-10 max-w-2xl mx-auto px-5 sm:px-6">
           <p className="text-sm uppercase tracking-widest mb-4 font-body font-black text-black">
-            L&#39;Autore
+            L'Autore
           </p>
-          <h1 className="font-serif text-4xl md:text-6xl font-black text-black mb-4">
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-6xl font-black text-black mb-4">
             Marco Persico
           </h1>
           <div className="flex items-center justify-center gap-4 my-6">
@@ -30,17 +30,28 @@ export default function ChiSonoPage() {
             <div className="w-1.5 h-1.5 rounded-full bg-black/70" />
             <div className="h-px w-16 bg-black/50" />
           </div>
-          <p className="font-serif text-xl font-black text-black">
-            Esploratore all&#39;incrocio tra fisica, filosofia e coscienza
+          <p className="font-serif text-lg sm:text-xl font-black text-black">
+            Esploratore all'incrocio tra fisica, filosofia e coscienza
           </p>
         </div>
       </div>
 
       {/* Bio Section */}
-      <div className="max-w-4xl mx-auto px-6 py-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {/* Portrait / Feature Image */}
-          <div className="md:col-span-1">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
+        {/* Portrait / Feature Image - full width on mobile */}
+        <div className="mb-8 sm:mb-12 md:hidden">
+          <div className="rounded-lg overflow-hidden border border-gold/20 shadow-card-dark max-w-sm mx-auto">
+            <img
+              src="/assets/dall_e_2024-11-16_18.12.01_-_un_immagine_concettuale_che_rappresenta_l_unit_tra_mente_sensi_e_spirit-019d4f1a-3b0b-71bc-ae39-940b38606101.webp"
+              alt="Marco Persico"
+              className="w-full object-cover"
+            />
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+          {/* Sidebar - only visible on md+ */}
+          <div className="hidden md:block md:col-span-1">
             <div className="sticky top-24">
               <div className="rounded-lg overflow-hidden border border-gold/20 shadow-card-dark mb-6">
                 <img
@@ -76,8 +87,8 @@ export default function ChiSonoPage() {
           </div>
 
           {/* Bio Text */}
-          <div className="md:col-span-2 space-y-8">
-            <div className="space-y-6 font-body text-foreground/80 leading-relaxed">
+          <div className="md:col-span-2 space-y-6 sm:space-y-8">
+            <div className="space-y-5 font-body text-foreground/80 leading-relaxed text-base sm:text-base">
               <p>
                 Mi chiamo{" "}
                 <strong className="text-foreground font-semibold">
@@ -117,14 +128,14 @@ export default function ChiSonoPage() {
             </div>
 
             {/* Pull quote */}
-            <blockquote className="border-l-2 border-gold pl-6 py-2">
-              <p className="font-serif italic text-xl text-foreground/90 leading-relaxed">
+            <blockquote className="border-l-2 border-gold pl-5 sm:pl-6 py-2">
+              <p className="font-serif italic text-lg sm:text-xl text-foreground/90 leading-relaxed">
                 «La scienza moderna ci insegna il come, le scienze filosofiche e
                 l'esoterismo invece il perché.»
               </p>
             </blockquote>
 
-            <div className="space-y-6 font-body text-foreground/80 leading-relaxed">
+            <div className="space-y-5 font-body text-foreground/80 leading-relaxed">
               <p>
                 Sono convinto che la crisi della modernità — dovuta
                 all'alienazione, al nichilismo, alla perdita di senso — derivi
@@ -136,20 +147,44 @@ export default function ChiSonoPage() {
               </p>
             </div>
 
+            {/* Topics - mobile only */}
+            <div className="md:hidden bg-card border border-border rounded-lg p-5">
+              <h3 className="font-serif text-sm text-gold uppercase tracking-wider mb-4">
+                Argomenti
+              </h3>
+              <ul className="grid grid-cols-2 gap-2">
+                {[
+                  "Fisica Quantistica",
+                  "Filosofia della mente",
+                  "Spiritualità comparata",
+                  "Coscienza e materia",
+                  "Metafisica occidentale",
+                ].map((topic) => (
+                  <li
+                    key={topic}
+                    className="flex items-center gap-2 text-sm text-muted-foreground font-body"
+                  >
+                    <div className="w-1 h-1 rounded-full bg-gold/60 flex-shrink-0" />
+                    {topic}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
             {/* Image closing */}
-            <div className="grid grid-cols-2 gap-4 mt-8">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-6 sm:mt-8">
               <div className="rounded-lg overflow-hidden border border-border">
                 <img
                   src="/assets/dio-019d4f1a-45aa-716f-90d9-8666862f85e5.png"
                   alt="Il Divino nella visione di Marco Persico"
-                  className="w-full h-40 object-cover"
+                  className="w-full h-32 sm:h-40 object-cover"
                 />
               </div>
               <div className="rounded-lg overflow-hidden border border-border">
                 <img
                   src="/assets/intuizione-019d4f1a-343e-733c-a92d-cc5c6c7678de.jpg"
                   alt="L'Intuizione"
-                  className="w-full h-40 object-cover"
+                  className="w-full h-32 sm:h-40 object-cover"
                 />
               </div>
             </div>

@@ -16,20 +16,19 @@ export default function ArticoloPage() {
         className="min-h-screen pt-16 flex items-center justify-center"
         data-ocid="article.error_state"
       >
-        <div className="text-center max-w-md mx-auto px-6">
+        <div className="text-center max-w-md mx-auto px-5">
           <p className="font-serif text-2xl text-muted-foreground mb-4">
             Articolo non trovato
           </p>
           <p className="font-body text-sm text-muted-foreground/70 mb-8">
-            L&#39;articolo che cerchi non esiste o non &#232; pi&#249;
-            disponibile.
+            L&#39;articolo che cerchi non esiste o non è più disponibile.
           </p>
           <Link
             to="/articoli"
             className="inline-flex items-center text-gold hover:text-gold-light transition-colors font-body text-sm"
             data-ocid="article.link"
           >
-            &#x2190; Torna agli Articoli
+            ← Torna agli Articoli
           </Link>
         </div>
       </div>
@@ -48,7 +47,7 @@ export default function ArticoloPage() {
     <div className="min-h-screen pt-16">
       {/* Article Hero */}
       {article.imageUrl && (
-        <div className="relative h-72 md:h-96 overflow-hidden">
+        <div className="relative h-56 sm:h-72 md:h-96 overflow-hidden">
           <img
             src={article.imageUrl}
             alt={article.title}
@@ -59,11 +58,11 @@ export default function ArticoloPage() {
       )}
 
       {/* Article Content */}
-      <div className="max-w-3xl mx-auto px-6 py-12">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
         {/* Back link */}
         <Link
           to="/articoli"
-          className="inline-flex items-center text-sm text-gold hover:text-gold-light transition-colors font-body mb-8"
+          className="inline-flex items-center text-sm text-gold hover:text-gold-light transition-colors font-body mb-6 sm:mb-8"
           data-ocid="article.link"
         >
           <svg
@@ -89,11 +88,11 @@ export default function ArticoloPage() {
           </p>
         )}
 
-        <h1 className="font-serif text-3xl md:text-5xl text-foreground mb-6 leading-tight">
+        <h1 className="font-serif text-2xl sm:text-3xl md:text-5xl text-foreground mb-5 sm:mb-6 leading-tight">
           {article.title}
         </h1>
 
-        <div className="flex items-center gap-4 mb-8 pb-8 border-b border-border">
+        <div className="flex items-center gap-4 mb-6 sm:mb-8 pb-6 sm:pb-8 border-b border-border">
           <div className="h-px flex-1 bg-border" />
           <div className="flex items-center gap-2 text-sm text-muted-foreground font-body">
             <span>Marco Persico</span>
@@ -102,14 +101,14 @@ export default function ArticoloPage() {
         </div>
 
         {article.excerpt && (
-          <p className="font-serif italic text-lg text-foreground/80 leading-relaxed mb-8 border-l-2 border-gold pl-5">
+          <p className="font-serif italic text-base sm:text-lg text-foreground/80 leading-relaxed mb-6 sm:mb-8 border-l-2 border-gold pl-4 sm:pl-5">
             {article.excerpt}
           </p>
         )}
 
         {/* Article body */}
         <div
-          className="prose prose-invert prose-lg max-w-none font-body
+          className="prose prose-invert prose-base sm:prose-lg max-w-none font-body
           prose-headings:font-serif prose-headings:text-foreground
           prose-p:text-foreground/80 prose-p:leading-relaxed
           prose-a:text-gold prose-a:no-underline hover:prose-a:text-gold-light
@@ -121,19 +120,19 @@ export default function ArticoloPage() {
             <div dangerouslySetInnerHTML={{ __html: article.content }} />
           ) : (
             <p className="text-muted-foreground">
-              Il contenuto di questo articolo sar&#224; presto disponibile.
+              Il contenuto di questo articolo sarà presto disponibile.
             </p>
           )}
         </div>
 
         {/* Bottom nav */}
-        <div className="mt-16 pt-8 border-t border-border flex justify-between items-center">
+        <div className="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-border flex justify-between items-center">
           <Link
             to="/articoli"
             className="inline-flex items-center text-sm text-gold hover:text-gold-light transition-colors font-body"
             data-ocid="article.link"
           >
-            &#x2190; Torna agli Articoli
+            ← Torna agli Articoli
           </Link>
           <Link
             to="/"

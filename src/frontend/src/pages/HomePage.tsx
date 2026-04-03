@@ -3,8 +3,7 @@ import { useEffect, useRef } from "react";
 import ArticleCard from "../components/ArticleCard";
 import { ARTICLES } from "../data/articles";
 
-const HERO_BG =
-  "/assets/a-mountain-torrent-william-james-muller-oil-painting-019d4f1a-3e37-738c-b841-6ec51291a21e.jpg";
+const HERO_BG = "/assets/sufism-019d5205-2f09-7529-9b6b-01e94766a6fc.jpg";
 
 const featureImages = [
   {
@@ -15,8 +14,8 @@ const featureImages = [
   },
   {
     src: "/assets/dall_e_2024-11-16_18.12.01_-_un_immagine_concettuale_che_rappresenta_l_unit_tra_mente_sensi_e_spirit-019d4f1a-3b0b-71bc-ae39-940b38606101.webp",
-    alt: "Unit\u00e0 mente sensi spirito",
-    caption: "L'Unit\u00e0",
+    alt: "Unità mente sensi spirito",
+    caption: "L'Unità",
     description: "Mente, sensi e spirito come un unico tutto",
   },
   {
@@ -82,7 +81,7 @@ export default function HomePage() {
           backgroundImage: `url(${HERO_BG})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundAttachment: "fixed",
+          // backgroundAttachment: 'fixed' causes issues on iOS Safari - omit it
         }}
         data-ocid="home.section"
       >
@@ -97,53 +96,35 @@ export default function HomePage() {
           }}
         />
 
-        <div className="relative z-10 max-w-3xl mx-auto px-6 pt-28 pb-24">
+        <div className="relative z-10 w-full max-w-4xl mx-auto px-5 pt-24 pb-20 sm:pt-28 sm:pb-24">
           {/* Decorative line */}
-          <div className="flex items-center justify-center gap-4 mb-8">
-            <div className="h-px w-16 bg-gold/50" />
+          <div className="flex items-center justify-center gap-4 mb-8 sm:mb-10">
+            <div className="h-px w-12 sm:w-16 bg-gold/50" />
             <div className="w-2 h-2 rounded-full bg-gold/70" />
-            <div className="h-px w-16 bg-gold/50" />
+            <div className="h-px w-12 sm:w-16 bg-gold/50" />
           </div>
 
           <h1
-            className="font-serif text-5xl md:text-7xl font-bold mb-4 tracking-wide leading-tight"
+            className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-10 sm:mb-14 tracking-wide leading-tight"
             style={{
-              textShadow: "0 2px 20px rgba(255,255,255,0.3)",
+              textShadow: "0 2px 24px rgba(255,255,255,0.25)",
               color: "#000000",
             }}
           >
-            Materia Prima
+            Dove la scienza incontra il trascendente
           </h1>
 
-          <div className="flex items-center justify-center gap-4 my-6">
-            <div className="h-px w-24 bg-gold/40" />
-          </div>
-
-          <p
-            className="font-serif text-2xl md:text-3xl mb-3 tracking-wide font-bold"
-            style={{ color: "#000000" }}
-          >
-            Dove la scienza incontra il trascendente.
-          </p>
-          <p
-            className="font-body text-xl md:text-2xl mb-12 max-w-md mx-auto leading-relaxed font-bold"
-            style={{ color: "#000000" }}
-          >
-            Riflessioni sulla trascendenza della realt&agrave; tra scienza,
-            psicologia esoterica e filosofia.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
             <Link
               to="/articoli"
-              className="inline-block px-8 py-3 bg-gold text-navy-deep font-body font-semibold text-sm tracking-widest uppercase rounded transition-all duration-300 hover:bg-gold-light hover:shadow-gold"
+              className="w-full sm:w-auto inline-block px-8 py-4 sm:py-3 bg-gold text-navy-deep font-body font-semibold text-sm tracking-widest uppercase rounded transition-all duration-300 hover:bg-gold-light hover:shadow-gold active:scale-95"
               data-ocid="home.primary_button"
             >
               Esplora gli Articoli
             </Link>
             <Link
               to="/chi-sono"
-              className="inline-block px-8 py-3 border border-gold/60 text-gold font-body font-semibold text-sm tracking-widest uppercase rounded transition-all duration-300 hover:bg-gold/10"
+              className="w-full sm:w-auto inline-block px-8 py-4 sm:py-3 border border-gold/60 text-gold font-body font-semibold text-sm tracking-widest uppercase rounded transition-all duration-300 hover:bg-gold/10 active:scale-95"
               data-ocid="home.secondary_button"
             >
               Chi Sono
@@ -151,24 +132,27 @@ export default function HomePage() {
           </div>
 
           {/* Scroll indicator */}
-          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
+          <div className="absolute bottom-8 sm:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
             <span className="text-xs text-gold uppercase tracking-widest font-body">
               Scorri
             </span>
-            <div className="w-px h-10 bg-gold/40 animate-pulse" />
+            <div className="w-px h-8 sm:h-10 bg-gold/40 animate-pulse" />
           </div>
         </div>
       </section>
 
       {/* FEATURE IMAGES SECTION */}
-      <section className="py-20 bg-background" data-ocid="home.section">
-        <div className="max-w-6xl mx-auto px-6">
+      <section
+        className="py-14 sm:py-20 bg-background"
+        data-ocid="home.section"
+      >
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <FadeSection>
-            <div className="text-center mb-12">
+            <div className="text-center mb-10 sm:mb-12">
               <p className="text-xs text-gold uppercase tracking-widest mb-3 font-body">
                 Temi Fondamentali
               </p>
-              <h2 className="font-serif text-3xl md:text-4xl text-foreground">
+              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-foreground">
                 Tre Porte della Conoscenza
               </h2>
               <div className="flex items-center justify-center gap-4 mt-4">
@@ -179,7 +163,7 @@ export default function HomePage() {
             </div>
           </FadeSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
             {featureImages.map((img) => (
               <FadeSection key={img.alt}>
                 <div className="group relative overflow-hidden rounded-lg bg-card border border-border hover:border-gold/40 transition-all duration-300 hover:shadow-card-dark">
@@ -190,7 +174,7 @@ export default function HomePage() {
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
-                  <div className="p-5">
+                  <div className="p-4 sm:p-5">
                     <h3 className="font-serif text-xl text-gold mb-1">
                       {img.caption}
                     </h3>
@@ -206,7 +190,7 @@ export default function HomePage() {
       </section>
 
       {/* SEPARATOR */}
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex items-center gap-6">
           <div className="flex-1 h-px bg-border" />
           <svg
@@ -229,15 +213,18 @@ export default function HomePage() {
       </div>
 
       {/* ULTIMI ARTICOLI */}
-      <section className="py-20 bg-background" data-ocid="articles.section">
-        <div className="max-w-6xl mx-auto px-6">
+      <section
+        className="py-14 sm:py-20 bg-background"
+        data-ocid="articles.section"
+      >
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <FadeSection>
-            <div className="flex items-end justify-between mb-12">
+            <div className="flex items-end justify-between mb-10 sm:mb-12">
               <div>
                 <p className="text-xs text-gold uppercase tracking-widest mb-3 font-body">
                   Dal Blog
                 </p>
-                <h2 className="font-serif text-3xl md:text-4xl text-foreground">
+                <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-foreground">
                   Ultimi Articoli
                 </h2>
               </div>
@@ -265,7 +252,7 @@ export default function HomePage() {
             </div>
           </FadeSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
             {latestArticles.map((article, i) => (
               <FadeSection key={article.id.toString()}>
                 <ArticleCard article={article} index={i + 1} />
@@ -279,7 +266,7 @@ export default function HomePage() {
               className="inline-flex items-center text-sm text-gold hover:text-gold-light transition-colors font-body"
               data-ocid="articles.link"
             >
-              Vedi tutti gli articoli &#x2192;
+              Vedi tutti gli articoli →
             </Link>
           </div>
         </div>
@@ -287,10 +274,10 @@ export default function HomePage() {
 
       {/* QUOTE SECTION */}
       <section
-        className="py-20 bg-navy-mid border-y border-gold/10"
+        className="py-14 sm:py-20 bg-navy-mid border-y border-gold/10"
         data-ocid="home.section"
       >
-        <div className="max-w-3xl mx-auto px-6 text-center">
+        <div className="max-w-3xl mx-auto px-5 sm:px-6 text-center">
           <FadeSection>
             <svg
               aria-hidden="true"
@@ -307,13 +294,13 @@ export default function HomePage() {
                 fill="currentColor"
               />
             </svg>
-            <blockquote className="font-serif italic text-xl md:text-2xl text-foreground/80 leading-relaxed mb-6">
+            <blockquote className="font-serif italic text-lg sm:text-xl md:text-2xl text-foreground/80 leading-relaxed mb-6">
               &ldquo;Il pensiero non descrive passivamente e dunque
-              riflessivamente la realt&agrave; ma partecipa attivamente alla sua
+              riflessivamente la realtà ma partecipa attivamente alla sua
               strutturazione.&rdquo;
             </blockquote>
             <cite className="font-body text-sm text-gold/70 uppercase tracking-widest not-italic">
-              &#x2014; Marco Persico
+              — Marco Persico
             </cite>
           </FadeSection>
         </div>
