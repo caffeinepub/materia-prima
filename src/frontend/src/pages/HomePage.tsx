@@ -96,7 +96,7 @@ export default function HomePage() {
         />
 
         {/* Top content: title */}
-        <div className="relative z-10 w-full max-w-4xl mx-auto px-5 pt-24 sm:pt-28">
+        <div className="relative z-10 w-full max-w-4xl mx-auto px-5 pt-24 sm:pt-28 shrink-0">
           {/* Decorative line */}
           <div className="flex items-center justify-center gap-4 mb-8 sm:mb-10">
             <div className="h-px w-12 sm:w-16 bg-gold/50" />
@@ -116,7 +116,7 @@ export default function HomePage() {
         </div>
 
         {/* Bottom content: buttons + scroll indicator */}
-        <div className="relative z-10 w-full max-w-4xl mx-auto px-5 pb-16 sm:pb-20">
+        <div className="relative z-10 w-full max-w-4xl mx-auto px-5 pb-16 sm:pb-20 lg:pb-24 mt-auto">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-10 sm:mb-12">
             <Link
               to="/articoli"
