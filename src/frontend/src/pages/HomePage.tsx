@@ -76,12 +76,11 @@ export default function HomePage() {
     <div>
       {/* HERO */}
       <section
-        className="relative min-h-screen flex items-start justify-center text-center"
+        className="relative min-h-screen flex flex-col justify-between text-center"
         style={{
           backgroundImage: `url(${HERO_BG})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          // backgroundAttachment: 'fixed' causes issues on iOS Safari - omit it
         }}
         data-ocid="home.section"
       >
@@ -96,7 +95,8 @@ export default function HomePage() {
           }}
         />
 
-        <div className="relative z-10 w-full max-w-4xl mx-auto px-5 pt-24 pb-20 sm:pt-28 sm:pb-24">
+        {/* Top content: title */}
+        <div className="relative z-10 w-full max-w-4xl mx-auto px-5 pt-24 sm:pt-28">
           {/* Decorative line */}
           <div className="flex items-center justify-center gap-4 mb-8 sm:mb-10">
             <div className="h-px w-12 sm:w-16 bg-gold/50" />
@@ -105,7 +105,7 @@ export default function HomePage() {
           </div>
 
           <h1
-            className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-10 sm:mb-14 tracking-wide leading-tight"
+            className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-wide leading-tight"
             style={{
               textShadow: "0 2px 24px rgba(255,255,255,0.25)",
               color: "#000000",
@@ -113,8 +113,11 @@ export default function HomePage() {
           >
             Dove la scienza incontra il trascendente
           </h1>
+        </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+        {/* Bottom content: buttons + scroll indicator */}
+        <div className="relative z-10 w-full max-w-4xl mx-auto px-5 pb-16 sm:pb-20">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-10 sm:mb-12">
             <Link
               to="/articoli"
               className="w-full sm:w-auto inline-block px-8 py-4 sm:py-3 bg-gold text-navy-deep font-body font-semibold text-sm tracking-widest uppercase rounded transition-all duration-300 hover:bg-gold-light hover:shadow-gold active:scale-95"
@@ -132,7 +135,7 @@ export default function HomePage() {
           </div>
 
           {/* Scroll indicator */}
-          <div className="absolute bottom-8 sm:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
+          <div className="flex flex-col items-center gap-2 opacity-50">
             <span className="text-xs text-gold uppercase tracking-widest font-body">
               Scorri
             </span>
