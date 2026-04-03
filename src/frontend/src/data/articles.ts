@@ -66,4 +66,15 @@ export const ARTICLES: Article[] = [
       "/assets/bohm_e_krishnamurti-019d5269-8b4d-726d-8b7c-82d1a3018b7d.jpg",
     publicationDate: "2024-06-10",
   },
+  {
+    id: 7n,
+    title: "La materia fisica come estrapolazione del flusso",
+    excerpt:
+      "La materia non \u00e8 un\u2019illusione n\u00e9 qualcosa di statico: \u00e8 un\u2019emergenza, una manifestazione, un\u2019astrazione del flusso dinamico e incessante della totalit\u00e0.",
+    content:
+      "<p>Leggo che, secondo alcuni, grazie alla teoria quantistica ci saremmo finalmente resi conto che la materia, la massa, \u00e8 pura illusione e che in realt\u00e0 la materia non esiste. Si sostiene che tutto sia energia e che la materia non sia altro che un\u2019illusione. Tuttavia, se la materia e la massa fossero davvero un\u2019illusione, allora anche la teoria classica di Newton lo sarebbe, e con essa le leggi dell\u2019aerodinamica. Di conseguenza, sarebbe illusorio persino il fatto che gli aerei volano in cielo, che le palle da biliardo (fatte di materia) esistano e si muovano seguendo leggi ben precise. Ma questo, ovviamente, non \u00e8 il caso: la materia e la teoria classica non sono illusioni.</p><p>La materia, piuttosto, pu\u00f2 essere vista come un\u2019astrazione, un\u2019estrapolazione da questa energia, da questo flusso sconosciuto della totalit\u00e0 di ci\u00f2 che \u00e8, come lo definiva il fisico David Bohm. Per spiegare quest\u2019ultima affermazione, possiamo ricorrere alla metafora del flusso d\u2019acqua che scorre. Durante il suo scorrere, il flusso d\u2019acqua genera movimenti visibili: piccoli vortici, increspature, schizzi qua e l\u00e0, e cos\u00ec via. Questi vortici e increspature sono manifestazioni del flusso stesso; essi non esistono separatamente dal movimento continuo dell\u2019acqua, ma sono generati e sostenuti da esso.</p><p>Generalmente, per\u00f2, concepiamo il movimento in maniera opposta: tendiamo a credere che i corpi nello spazio-tempo siano fermi e che poi, in un secondo momento, possano muoversi. In realt\u00e0, \u00e8 il movimento del flusso che genera la materia. La materia, quindi, non \u00e8 qualcosa di statico o indipendente, ma un\u2019astrazione, un\u2019estrapolazione dal movimento continuo del flusso.</p><p>La materia, dunque, non \u00e8 un\u2019illusione, bens\u00ec un\u2019emergenza, una manifestazione, una astrazione, una estrapolazione di questo flusso dinamico e incessante.</p>",
+    imageUrl:
+      "/assets/a-mountain-torrent-william-james-muller-oil-painting-019d4f1a-3e37-738c-b841-6ec51291a21e.jpg",
+    publicationDate: "2024-07-05",
+  },
 ];
