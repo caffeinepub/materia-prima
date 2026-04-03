@@ -44,4 +44,15 @@ export const ARTICLES: Article[] = [
       "/assets/thinking_creates_reality-019d4fd3-8b57-7450-a008-82d2ad6ddae6.jpg",
     publicationDate: "2024-04-02",
   },
+  {
+    id: 5n,
+    title: "Scienza e Metafisica",
+    excerpt:
+      "Il positivismo scientifico ignora la dimensione qualitativa dei fenomeni. Aristotele e Hegel ci mostrano che la materia obbedisce a un principio razionale: il telos.",
+    content:
+      "<p>Il positivismo scientifico odierno ignora completamente la dimensione qualitativa dei fenomeni. Ad esempio la teoria newtoniana della gravitazione universale viene vista da costoro solamente da un punto di vista quantitativo, trascurando completamente la dimensione qualitativa del \u201cperch\u00e9\u201d. La gravitazione viene cos\u00ec ridotta ad un semplice meccanismo privo di vita nel quale ad una causa segue un effetto \u2014 il sole perch\u00e9 di massa superiore attrae a s\u00e9 gli altri pianeti solari secondo una legge quantitativa ben precisa.</p><p>L\u2019esoterismo e la metafisica, invece, si occupano anche della dimensione qualitativa del \u201cperch\u00e9\u201d.</p><p>Aristotele riteneva che il principio di causa-effetto fosse insufficiente per comprendere appieno un fenomeno. Egli sosteneva che, per conoscere qualcosa nella sua totalit\u00e0, \u00e8 necessario esplorare le sue quattro cause: materiale, formale, efficiente e finale. In particolare, il <em>telos</em> \u2013 ossia la causa finale \u2013 rappresenta il principio razionale, ovvero lo scopo o il fine intrinseco del fenomeno. \u00c8 importante non confondere questa idea di razionalit\u00e0 con il semplice rapporto di causa-effetto, poich\u00e9 nel linguaggio comune si tende spesso a sovrapporre i due concetti.</p><p>Hegel, erede del pensiero aristotelico, rifletteva sulla teoria newtoniana in termini metafisici. Per lui, il centro di gravit\u00e0 (il Sole nel sistema solare) non \u00e8 semplicemente un punto geometrico o un aggregato di massa. Al contrario, il centro rappresenta il <em>telos</em>, il principio unificatore e razionale che conferisce significato all\u2019intero fenomeno. Esso incarna la verit\u00e0 verso cui la materia tende, rivelando come persino nei processi naturali apparentemente meccanici operi una razionalit\u00e0 che mira all\u2019unit\u00e0 organica.</p><p>Questa razionalit\u00e0 prefigura l\u2019opera dello Spirito:</p><blockquote><p>la materia non \u00e8 libera ma obbedisce allo Spirito.</p></blockquote>",
+    imageUrl:
+      "/assets/sistema-solare-1494313710-019d525a-8a9a-747e-8a0a-810438ea337b.jpg",
+    publicationDate: "2024-05-15",
+  },
 ];
