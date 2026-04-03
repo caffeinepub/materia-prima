@@ -14,15 +14,15 @@ const featureImages = [
   },
   {
     src: "/assets/dall_e_2024-11-16_18.12.01_-_un_immagine_concettuale_che_rappresenta_l_unit_tra_mente_sensi_e_spirit-019d4f1a-3b0b-71bc-ae39-940b38606101.webp",
-    alt: "Unità mente sensi spirito",
+    alt: "Unità mente corpo",
     caption: "L'Unità",
-    description: "Mente, sensi e spirito come un unico tutto",
+    description: "Mente e corpo come un unico tutto",
   },
   {
     src: "/assets/dio-019d4f1a-45aa-716f-90d9-8666862f85e5.png",
     alt: "Il Divino",
     caption: "Il Divino",
-    description: "La presenza oltre la materia",
+    description: "L'archetipo o Idea che permea la realtà",
   },
 ];
 
@@ -96,7 +96,7 @@ export default function HomePage() {
         />
 
         {/* Top content: title */}
-        <div className="relative z-10 w-full max-w-4xl mx-auto px-5 pt-24 sm:pt-28 shrink-0">
+        <div className="relative z-10 w-full max-w-4xl mx-auto px-5 pt-24 sm:pt-28">
           {/* Decorative line */}
           <div className="flex items-center justify-center gap-4 mb-8 sm:mb-10">
             <div className="h-px w-12 sm:w-16 bg-gold/50" />
@@ -105,10 +105,9 @@ export default function HomePage() {
           </div>
 
           <h1
-            className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-wide leading-tight"
+            className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-wide leading-tight text-gold"
             style={{
-              textShadow: "0 2px 24px rgba(255,255,255,0.25)",
-              color: "#000000",
+              textShadow: "0 2px 24px rgba(0,0,0,0.4)",
             }}
           >
             Dove la scienza incontra il trascendente
@@ -116,7 +115,7 @@ export default function HomePage() {
         </div>
 
         {/* Bottom content: buttons + scroll indicator */}
-        <div className="relative z-10 w-full max-w-4xl mx-auto px-5 pb-16 sm:pb-20 lg:pb-24 mt-auto">
+        <div className="relative z-10 w-full max-w-4xl mx-auto px-5 pb-16 sm:pb-20">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-10 sm:mb-12">
             <Link
               to="/articoli"
