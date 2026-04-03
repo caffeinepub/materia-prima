@@ -28,6 +28,12 @@ export default function Footer() {
         </div>
         <div className="text-center md:text-right">
           <p className="text-muted-foreground text-sm">Marco Persico</p>
+          <a
+            href="mailto:9ocram@proton.me"
+            className="text-muted-foreground text-sm hover:text-gold transition-colors"
+          >
+            9ocram@proton.me
+          </a>
         </div>
       </div>
     </footer>

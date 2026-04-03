@@ -11,7 +11,8 @@ const featureImages = [
     alt: "Intuizione",
     caption: "L'Intuizione",
     description: "La scintilla che precede le forze formative del pensiero",
-    link: null,
+    link: "/articoli/6",
+    articleId: "6",
   },
   {
     src: "/assets/dall_e_2024-11-16_18.12.01_-_un_immagine_concettuale_che_rappresenta_l_unit_tra_mente_sensi_e_spirit-019d4f1a-3b0b-71bc-ae39-940b38606101.webp",
@@ -19,13 +20,15 @@ const featureImages = [
     caption: "L'Unità",
     description: "Mente e corpo come un unico tutto",
     link: "/articoli/4",
+    articleId: "4",
   },
   {
-    src: "/assets/dio-019d4f1a-45aa-716f-90d9-8666862f85e5.png",
+    src: "/assets/sun-019d5264-ad10-73fe-8fd1-16387c4f0486.jpeg",
     alt: "Il Divino",
     caption: "Il Divino",
     description: "L'archetipo o Idea che permea la realtà",
-    link: null,
+    link: "/articoli/5",
+    articleId: "5",
   },
 ];
 
@@ -199,8 +202,11 @@ export default function HomePage() {
 
               return (
                 <FadeSection key={img.alt}>
-                  {img.link ? (
-                    <Link to={img.link as "/articoli/$id"} params={{ id: "4" }}>
+                  {img.link && img.articleId ? (
+                    <Link
+                      to={img.link as "/articoli/$id"}
+                      params={{ id: img.articleId }}
+                    >
                       {cardContent}
                     </Link>
                   ) : (
