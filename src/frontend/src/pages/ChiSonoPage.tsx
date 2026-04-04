@@ -131,12 +131,12 @@ export default function ChiSonoPage() {
               </p>
               <p>{t(lang, "about.bio_2")}</p>
               <p>
-                <em className="font-serif italic">Materia Prima</em>{" "}
+                <em className="font-serif italic">prima materia</em>{" "}
                 {lang === "it"
-                  ? "è il nome che ho scelto per questo spazio. Gli scolastici si riferivano alla materia prima come sostanza indifferenziata da cui tutto emerge. Guénon collega giustamente questo concetto alla Prakriti della tradizione hindu."
+                  ? "è il nome che ho scelto per questo spazio. Gli scolastici si riferivano alla prima materia come sostanza indifferenziata da cui tutto emerge. Guénon collega giustamente questo concetto alla Prakriti della tradizione hindu."
                   : lang === "en"
-                    ? "is the name I chose for this space. The scholastics referred to materia prima as the undifferentiated substance from which all things emerge. Guénon rightly connects this concept to the Prakriti of the Hindu tradition."
-                    : "es el nombre que elegí para este espacio. Los escolásticos se referían a la materia prima como la sustancia indiferenciada de la que todo emerge. Guénon conecta acertadamente este concepto con la Prakriti de la tradición hindú."}
+                    ? "is the name I chose for this space. The scholastics referred to prima materia as the undifferentiated substance from which all things emerge. Guénon rightly connects this concept to the Prakriti of the Hindu tradition."
+                    : "es el nombre que elegí para este espacio. Los escolásticos se referían a la prima materia como la sustancia indiferenciada de la que todo emerge. Guénon conecta acertadamente este concepto con la Prakriti de la tradición hindú."}
               </p>
               <p>{t(lang, "about.bio_4")}</p>
             </div>

@@ -71,7 +71,7 @@ const translations = {
     "about.bio_2":
       "Il mio percorso ha attraversato la psicologia del profondo e la teoria quantistica — con la sua dissoluzione del concetto di oggetto separato — le tradizioni filosofiche orientali e occidentali, e la grande corrente del pensiero mistico europeo. David Bohm, Krishnamurti per giungere a Guénon che è uno dei pochi autori moderni che riprende con fedeltà e autenticità la metafisica aristotelica che oramai viene considerata superata e dunque scartata.",
     "about.bio_3":
-      "Materia Prima è il nome che ho scelto per questo spazio. Gli scolastici si riferivano alla materia prima come sostanza indifferenziata da cui tutto emerge. Guénon collega giustamente questo concetto alla Prakriti della tradizione hindu.",
+      "prima materia è il nome che ho scelto per questo spazio. Gli scolastici si riferivano alla prima materia come sostanza indifferenziata da cui tutto emerge. Guénon collega giustamente questo concetto alla Prakriti della tradizione hindu.",
     "about.bio_4":
       "In questo blog condivido riflessioni, analisi e intuizioni per chi, come me, è del parere che la scienza moderna è incompleta.",
     "about.pullquote":
@@ -153,7 +153,7 @@ const translations = {
     "about.bio_2":
       "My path has crossed depth psychology and quantum theory — with its dissolution of the concept of the separate object — Eastern and Western philosophical traditions, and the great current of European mystical thought. David Bohm, Krishnamurti, and ultimately Guénon, one of the few modern authors who faithfully and authentically retrieves Aristotelian metaphysics, now considered obsolete and discarded.",
     "about.bio_3":
-      "Materia Prima is the name I chose for this space. The scholastics referred to materia prima as the undifferentiated substance from which all things emerge. Guénon rightly connects this concept to the Prakriti of the Hindu tradition.",
+      "prima materia is the name I chose for this space. The scholastics referred to prima materia as the undifferentiated substance from which all things emerge. Guénon rightly connects this concept to the Prakriti of the Hindu tradition.",
     "about.bio_4":
       "In this blog I share reflections, analyses and intuitions for those who, like me, believe that modern science is incomplete.",
     "about.pullquote":
@@ -236,7 +236,7 @@ const translations = {
     "about.bio_2":
       "Mi camino ha atravesado la psicología profunda y la teoría cuántica — con su disolución del concepto de objeto separado — las tradiciones filosóficas orientales y occidentales, y la gran corriente del pensamiento místico europeo. David Bohm, Krishnamurti, hasta llegar a Guénon, uno de los pocos autores modernos que retoma con fidelidad y autenticidad la metafísica aristotélica, hoy considerada superada y desechada.",
     "about.bio_3":
-      "Materia Prima es el nombre que elegí para este espacio. Los escolásticos se referían a la materia prima como la sustancia indiferenciada de la que todo emerge. Guénon conecta acertadamente este concepto con la Prakriti de la tradición hindú.",
+      "prima materia es el nombre que elegí para este espacio. Los escolásticos se referían a la prima materia como la sustancia indiferenciada de la que todo emerge. Guénon conecta acertadamente este concepto con la Prakriti de la tradición hindú.",
     "about.bio_4":
       "En este blog comparto reflexiones, análisis e intuiciones para quienes, como yo, consideran que la ciencia moderna es incompleta.",
     "about.pullquote":
