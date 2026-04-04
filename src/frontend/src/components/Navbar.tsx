@@ -45,11 +45,11 @@ export default function Navbar() {
         {/* Logo */}
         <Link
           to="/"
-          className="font-serif text-lg sm:text-xl font-semibold tracking-widest text-gold uppercase"
+          className="font-serif text-lg sm:text-xl font-semibold tracking-widest text-gold"
           data-ocid="nav.link"
           onClick={() => setMenuOpen(false)}
         >
-          Materia Prima
+          prima materia
         </Link>
 
         {/* Desktop links + language switcher */}

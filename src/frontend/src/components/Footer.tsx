@@ -10,8 +10,8 @@ export default function Footer() {
     <footer className="bg-navy-deep border-t border-gold/20 py-8 mt-16">
       <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="text-center md:text-left">
-          <p className="font-serif text-gold text-lg tracking-widest uppercase">
-            Materia Prima
+          <p className="font-serif text-gold text-lg tracking-widest">
+            prima materia
           </p>
           <p className="text-muted-foreground text-sm mt-1">
             {t(lang, "footer.tagline")}
