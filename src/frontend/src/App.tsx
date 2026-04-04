@@ -7,6 +7,7 @@ import {
 import { useEffect } from "react";
 import Layout from "./components/Layout";
 import { createActorWithConfig } from "./config";
+import { LanguageProvider } from "./i18n/LanguageContext";
 import ArticoliPage from "./pages/ArticoliPage";
 import ArticoloPage from "./pages/ArticoloPage";
 import ChiSonoPage from "./pages/ChiSonoPage";
@@ -62,5 +63,9 @@ export default function App() {
       .catch(console.error);
   }, []);
 
-  return <RouterProvider router={router} />;
+  return (
+    <LanguageProvider>
+      <RouterProvider router={router} />
+    </LanguageProvider>
+  );
 }

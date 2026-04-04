@@ -1,6 +1,10 @@
+import { useLanguage } from "../i18n/LanguageContext";
+import { t } from "../i18n/translations";
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   const hostname = window.location.hostname;
+  const { lang } = useLanguage();
 
   return (
     <footer className="bg-navy-deep border-t border-gold/20 py-8 mt-16">
@@ -10,7 +14,7 @@ export default function Footer() {
             Materia Prima
           </p>
           <p className="text-muted-foreground text-sm mt-1">
-            Dove la fisica incontra lo spirito
+            {t(lang, "footer.tagline")}
           </p>
         </div>
         <div className="text-center">
@@ -22,7 +26,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="hover:text-gold transition-colors"
             >
-              Realizzato con ♥ su caffeine.ai
+              {t(lang, "footer.made_with")}
             </a>
           </p>
         </div>

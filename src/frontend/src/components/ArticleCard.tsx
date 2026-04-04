@@ -1,5 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import type { Article } from "../backend.d";
+import { useLanguage } from "../i18n/LanguageContext";
+import { getArticleTranslation } from "../i18n/articlesTranslations";
+import { t } from "../i18n/translations";
 
 interface ArticleCardProps {
   article: Article;
@@ -7,8 +10,15 @@ interface ArticleCardProps {
 }
 
 export default function ArticleCard({ article, index = 1 }: ArticleCardProps) {
+  const { lang } = useLanguage();
+  const translation = getArticleTranslation(lang, Number(article.id));
+  const dateLocale = t(lang, "article.date_locale");
+
+  const displayTitle = translation?.title ?? article.title;
+  const displayExcerpt = translation?.excerpt ?? article.excerpt;
+
   const formattedDate = article.publicationDate
-    ? new Date(article.publicationDate).toLocaleDateString("it-IT", {
+    ? new Date(article.publicationDate).toLocaleDateString(dateLocale, {
         year: "numeric",
         month: "long",
         day: "numeric",
@@ -24,7 +34,7 @@ export default function ArticleCard({ article, index = 1 }: ArticleCardProps) {
         <div className="aspect-[16/9] overflow-hidden">
           <img
             src={article.imageUrl}
-            alt={article.title}
+            alt={displayTitle}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             loading="lazy"
           />
@@ -37,11 +47,11 @@ export default function ArticleCard({ article, index = 1 }: ArticleCardProps) {
           </p>
         )}
         <h3 className="font-serif text-lg font-semibold text-foreground mb-2 line-clamp-2 group-hover:text-gold transition-colors">
-          {article.title}
+          {displayTitle}
         </h3>
-        {article.excerpt && (
+        {displayExcerpt && (
           <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3 flex-1 font-body">
-            {article.excerpt}
+            {displayExcerpt}
           </p>
         )}
         <Link
@@ -50,7 +60,7 @@ export default function ArticleCard({ article, index = 1 }: ArticleCardProps) {
           className="inline-flex items-center text-sm text-gold hover:text-gold-light transition-colors font-body tracking-wide mt-auto"
           data-ocid={`article.link.${index}`}
         >
-          Leggi di più
+          {t(lang, "article.read_more")}
           <svg
             aria-hidden="true"
             className="ml-2 w-4 h-4"

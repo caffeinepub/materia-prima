@@ -2,35 +2,10 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
 import ArticleCard from "../components/ArticleCard";
 import { ARTICLES } from "../data/articles";
+import { useLanguage } from "../i18n/LanguageContext";
+import { t } from "../i18n/translations";
 
 const HERO_BG = "/assets/sufism-019d5205-2f09-7529-9b6b-01e94766a6fc.jpg";
-
-const featureImages = [
-  {
-    src: "/assets/intuizione-019d4f1a-343e-733c-a92d-cc5c6c7678de.jpg",
-    alt: "Intuizione",
-    caption: "L'Intuizione",
-    description: "La scintilla che precede le forze formative del pensiero",
-    link: "/articoli/6",
-    articleId: "6",
-  },
-  {
-    src: "/assets/dall_e_2024-11-16_18.12.01_-_un_immagine_concettuale_che_rappresenta_l_unit_tra_mente_sensi_e_spirit-019d4f1a-3b0b-71bc-ae39-940b38606101.webp",
-    alt: "Unità mente corpo",
-    caption: "L'Unità",
-    description: "Mente e corpo come un unico tutto",
-    link: "/articoli/4",
-    articleId: "4",
-  },
-  {
-    src: "/assets/sun-019d5264-ad10-73fe-8fd1-16387c4f0486.jpeg",
-    alt: "Il Divino",
-    caption: "Il Divino",
-    description: "L'archetipo o Idea che permea la realtà",
-    link: "/articoli/5",
-    articleId: "5",
-  },
-];
 
 const latestArticles = [...ARTICLES]
   .sort(
@@ -78,6 +53,35 @@ function FadeSection({
 }
 
 export default function HomePage() {
+  const { lang } = useLanguage();
+
+  const featureImages = [
+    {
+      src: "/assets/intuizione-019d4f1a-343e-733c-a92d-cc5c6c7678de.jpg",
+      alt: "Intuizione",
+      caption: t(lang, "feature.intuizione.caption"),
+      description: t(lang, "feature.intuizione.desc"),
+      link: "/articoli/6",
+      articleId: "6",
+    },
+    {
+      src: "/assets/dall_e_2024-11-16_18.12.01_-_un_immagine_concettuale_che_rappresenta_l_unit_tra_mente_sensi_e_spirit-019d4f1a-3b0b-71bc-ae39-940b38606101.webp",
+      alt: "Unità mente corpo",
+      caption: t(lang, "feature.unita.caption"),
+      description: t(lang, "feature.unita.desc"),
+      link: "/articoli/4",
+      articleId: "4",
+    },
+    {
+      src: "/assets/sun-019d5264-ad10-73fe-8fd1-16387c4f0486.jpeg",
+      alt: "Il Divino",
+      caption: t(lang, "feature.divino.caption"),
+      description: t(lang, "feature.divino.desc"),
+      link: "/articoli/5",
+      articleId: "5",
+    },
+  ];
+
   return (
     <div>
       {/* HERO */}
@@ -90,9 +94,7 @@ export default function HomePage() {
         }}
         data-ocid="home.section"
       >
-        {/* Dark overlay */}
         <div className="absolute inset-0 bg-navy-deep/60" />
-        {/* Subtle vignette */}
         <div
           className="absolute inset-0"
           style={{
@@ -101,9 +103,7 @@ export default function HomePage() {
           }}
         />
 
-        {/* Top content: title */}
         <div className="relative z-10 w-full max-w-4xl mx-auto px-5 pt-24 sm:pt-28">
-          {/* Decorative line */}
           <div className="flex items-center justify-center gap-4 mb-8 sm:mb-10">
             <div className="h-px w-12 sm:w-16 bg-gold/50" />
             <div className="w-2 h-2 rounded-full bg-gold/70" />
@@ -111,40 +111,29 @@ export default function HomePage() {
           </div>
 
           <h1
-            className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-wide leading-tight text-gold"
-            style={{
-              textShadow: "0 2px 24px rgba(0,0,0,0.4)",
-            }}
+            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-wide leading-tight text-gold"
+            style={{ textShadow: "0 2px 24px rgba(0,0,0,0.4)" }}
           >
-            Dove la scienza incontra il trascendente
+            {t(lang, "hero.headline")}
           </h1>
         </div>
 
-        {/* Bottom content: buttons + scroll indicator */}
         <div className="relative z-10 w-full max-w-4xl mx-auto px-5 pb-16 sm:pb-20">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-10 sm:mb-12">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
             <Link
               to="/articoli"
               className="w-full sm:w-auto inline-block px-8 py-4 sm:py-3 bg-gold text-navy-deep font-body font-semibold text-sm tracking-widest uppercase rounded transition-all duration-300 hover:bg-gold-light hover:shadow-gold active:scale-95"
               data-ocid="home.primary_button"
             >
-              Esplora gli Articoli
+              {t(lang, "hero.cta_articles")}
             </Link>
             <Link
               to="/chi-sono"
               className="w-full sm:w-auto inline-block px-8 py-4 sm:py-3 border border-gold/60 text-gold font-body font-semibold text-sm tracking-widest uppercase rounded transition-all duration-300 hover:bg-gold/10 active:scale-95"
               data-ocid="home.secondary_button"
             >
-              Chi Sono
+              {t(lang, "hero.cta_about")}
             </Link>
-          </div>
-
-          {/* Scroll indicator */}
-          <div className="flex flex-col items-center gap-2 opacity-50">
-            <span className="text-xs text-gold uppercase tracking-widest font-body">
-              Scorri
-            </span>
-            <div className="w-px h-8 sm:h-10 bg-gold/40 animate-pulse" />
           </div>
         </div>
       </section>
@@ -158,10 +147,10 @@ export default function HomePage() {
           <FadeSection>
             <div className="text-center mb-10 sm:mb-12">
               <p className="text-xs text-gold uppercase tracking-widest mb-3 font-body">
-                Temi Fondamentali
+                {t(lang, "home.themes_label")}
               </p>
               <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-foreground">
-                Tre Porte della Conoscenza
+                {t(lang, "home.themes_title")}
               </h2>
               <div className="flex items-center justify-center gap-4 mt-4">
                 <div className="h-px w-16 bg-gold/30" />
@@ -242,7 +231,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* ULTIMI ARTICOLI */}
+      {/* LATEST ARTICLES */}
       <section
         className="py-14 sm:py-20 bg-background"
         data-ocid="articles.section"
@@ -252,10 +241,10 @@ export default function HomePage() {
             <div className="flex items-end justify-between mb-10 sm:mb-12">
               <div>
                 <p className="text-xs text-gold uppercase tracking-widest mb-3 font-body">
-                  Dal Blog
+                  {t(lang, "home.blog_label")}
                 </p>
                 <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-foreground">
-                  Ultimi Articoli
+                  {t(lang, "home.latest_title")}
                 </h2>
               </div>
               <Link
@@ -263,7 +252,7 @@ export default function HomePage() {
                 className="hidden md:inline-flex items-center text-sm text-gold hover:text-gold-light transition-colors font-body tracking-wide"
                 data-ocid="articles.link"
               >
-                Vedi tutti
+                {t(lang, "home.see_all")}
                 <svg
                   aria-hidden="true"
                   className="ml-2 w-4 h-4"
@@ -296,7 +285,7 @@ export default function HomePage() {
               className="inline-flex items-center text-sm text-gold hover:text-gold-light transition-colors font-body"
               data-ocid="articles.link"
             >
-              Vedi tutti gli articoli →
+              {t(lang, "home.see_all_mobile")}
             </Link>
           </div>
         </div>
@@ -325,12 +314,10 @@ export default function HomePage() {
               />
             </svg>
             <blockquote className="font-serif italic text-lg sm:text-xl md:text-2xl text-foreground/80 leading-relaxed mb-6">
-              &ldquo;Il pensiero non descrive passivamente e dunque
-              riflessivamente la realtà ma partecipa attivamente alla sua
-              strutturazione.&rdquo;
+              &ldquo;{t(lang, "home.quote")}&rdquo;
             </blockquote>
             <cite className="font-body text-sm text-gold/70 uppercase tracking-widest not-italic">
-              — Marco Persico
+              {t(lang, "home.quote_author")}
             </cite>
           </FadeSection>
         </div>

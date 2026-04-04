@@ -1,9 +1,21 @@
 import { useEffect } from "react";
+import { useLanguage } from "../i18n/LanguageContext";
+import { t } from "../i18n/translations";
 
 export default function ChiSonoPage() {
+  const { lang } = useLanguage();
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
+
+  const topics = [
+    t(lang, "about.topic_1"),
+    t(lang, "about.topic_2"),
+    t(lang, "about.topic_3"),
+    t(lang, "about.topic_4"),
+    t(lang, "about.topic_5"),
+  ];
 
   return (
     <div className="min-h-screen pt-16">
@@ -20,10 +32,10 @@ export default function ChiSonoPage() {
         <div className="absolute inset-0 bg-navy-deep/75" />
         <div className="relative z-10 max-w-2xl mx-auto px-5 sm:px-6">
           <p className="text-sm uppercase tracking-widest mb-4 font-body font-black text-black">
-            L'Autore
+            {t(lang, "about.label")}
           </p>
           <h1 className="font-serif text-3xl sm:text-4xl md:text-6xl font-black text-black mb-4">
-            Marco Persico
+            {t(lang, "about.name")}
           </h1>
           <div className="flex items-center justify-center gap-4 my-6">
             <div className="h-px w-16 bg-black/50" />
@@ -31,14 +43,13 @@ export default function ChiSonoPage() {
             <div className="h-px w-16 bg-black/50" />
           </div>
           <p className="font-serif text-lg sm:text-xl font-black text-black">
-            Esploratore all'incrocio tra fisica, filosofia e coscienza
+            {t(lang, "about.subtitle")}
           </p>
         </div>
       </div>
 
       {/* Bio Section */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
-        {/* Portrait / Feature Image - full width on mobile */}
         <div className="mb-8 sm:mb-12 md:hidden">
           <div className="rounded-lg overflow-hidden border border-gold/20 shadow-card-dark max-w-sm mx-auto">
             <img
@@ -50,7 +61,7 @@ export default function ChiSonoPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-          {/* Sidebar - only visible on md+ */}
+          {/* Sidebar */}
           <div className="hidden md:block md:col-span-1">
             <div className="sticky top-24">
               <div className="rounded-lg overflow-hidden border border-gold/20 shadow-card-dark mb-6">
@@ -60,19 +71,12 @@ export default function ChiSonoPage() {
                   className="w-full object-cover"
                 />
               </div>
-              {/* Topics sidebar */}
               <div className="bg-card border border-border rounded-lg p-5">
                 <h3 className="font-serif text-sm text-gold uppercase tracking-wider mb-4">
-                  Argomenti
+                  {t(lang, "about.topics_heading")}
                 </h3>
                 <ul className="space-y-2">
-                  {[
-                    "Fisica Quantistica",
-                    "Filosofia della mente",
-                    "Spiritualità comparata",
-                    "Coscienza e materia",
-                    "Metafisica occidentale",
-                  ].map((topic) => (
+                  {topics.map((topic) => (
                     <li
                       key={topic}
                       className="flex items-center gap-2 text-sm text-muted-foreground font-body"
@@ -88,78 +92,72 @@ export default function ChiSonoPage() {
 
           {/* Bio Text */}
           <div className="md:col-span-2 space-y-6 sm:space-y-8">
-            <div className="space-y-5 font-body text-foreground/80 leading-relaxed text-base sm:text-base">
+            <div className="space-y-5 font-body text-foreground/80 leading-relaxed text-base">
               <p>
-                Mi chiamo{" "}
-                <strong className="text-foreground font-semibold">
-                  Marco Persico
-                </strong>{" "}
-                e da oltre 5 anni esploro la zona di confine tra scienze fisiche
-                e ricerca spirituale. Nato con una profonda curiosità per i
-                meccanismi nascosti della realtà, mi sono laureato in ingegneria
-                meccanica nel 2017 alla TU Delft in Olanda per poi sentire la
-                necessità di andare oltre queste materie che sono utili
-                solamente per fini pratici.
+                {lang === "it" ? (
+                  <>
+                    Mi chiamo{" "}
+                    <strong className="text-foreground font-semibold">
+                      Marco Persico
+                    </strong>{" "}
+                    {t(lang, "about.bio_1").replace(
+                      "Mi chiamo Marco Persico ",
+                      "",
+                    )}
+                  </>
+                ) : lang === "en" ? (
+                  <>
+                    My name is{" "}
+                    <strong className="text-foreground font-semibold">
+                      Marco Persico
+                    </strong>{" "}
+                    {t(lang, "about.bio_1").replace(
+                      "My name is Marco Persico ",
+                      "",
+                    )}
+                  </>
+                ) : (
+                  <>
+                    Me llamo{" "}
+                    <strong className="text-foreground font-semibold">
+                      Marco Persico
+                    </strong>{" "}
+                    {t(lang, "about.bio_1").replace(
+                      "Me llamo Marco Persico ",
+                      "",
+                    )}
+                  </>
+                )}
               </p>
-
+              <p>{t(lang, "about.bio_2")}</p>
               <p>
-                Il mio percorso ha attraversato la psicologia del profondo e la
-                teoria quantistica — con la sua dissoluzione del concetto di
-                oggetto separato — le tradizioni filosofiche orientali e
-                occidentali, e la grande corrente del pensiero mistico europeo.
-                David Bohm, Krishnamurti per giungere a Guénon che è uno dei
-                pochi autori moderni che riprende con fedeltà e autenticità la
-                metafisica aristotelica che oramai viene considerata superata e
-                dunque scartata.
+                <em className="font-serif italic">Materia Prima</em>{" "}
+                {lang === "it"
+                  ? "è il nome che ho scelto per questo spazio. Gli scolastici si riferivano alla materia prima come sostanza indifferenziata da cui tutto emerge. Guénon collega giustamente questo concetto alla Prakriti della tradizione hindu."
+                  : lang === "en"
+                    ? "is the name I chose for this space. The scholastics referred to materia prima as the undifferentiated substance from which all things emerge. Guénon rightly connects this concept to the Prakriti of the Hindu tradition."
+                    : "es el nombre que elegí para este espacio. Los escolásticos se referían a la materia prima como la sustancia indiferenciada de la que todo emerge. Guénon conecta acertadamente este concepto con la Prakriti de la tradición hindú."}
               </p>
-
-              <p>
-                <em className="font-serif italic">Materia Prima</em> è il nome
-                che ho scelto per questo spazio. Gli scolastici si riferivano
-                alla materia prima come sostanza indifferenziata da cui tutto
-                emerge. Guénon collega giustamente questo concetto alla Prakriti
-                della tradizione hindu.
-              </p>
-
-              <p>
-                In questo blog condivido riflessioni, analisi e intuizioni per
-                chi, come me, è del parere che la scienza moderna è incompleta.
-              </p>
+              <p>{t(lang, "about.bio_4")}</p>
             </div>
 
-            {/* Pull quote */}
             <blockquote className="border-l-2 border-gold pl-5 sm:pl-6 py-2">
               <p className="font-serif italic text-lg sm:text-xl text-foreground/90 leading-relaxed">
-                «La scienza moderna ci insegna il come, le scienze filosofiche e
-                l'esoterismo invece il perché.»
+                {t(lang, "about.pullquote")}
               </p>
             </blockquote>
 
             <div className="space-y-5 font-body text-foreground/80 leading-relaxed">
-              <p>
-                Sono convinto che la crisi della modernità — dovuta
-                all'alienazione, al nichilismo, alla perdita di senso — derivi
-                in parte dall'aver separato artificialmente il sapere
-                scientifico dall'esperienza interiore. I grandi fisici del
-                Novecento — Bohr, Heisenberg, Schrödinger, Bohm — avvertivano
-                questa tensione e cercavano ponti. Il mio lavoro vuole
-                continuare quella ricerca.
-              </p>
+              <p>{t(lang, "about.bio_5")}</p>
             </div>
 
             {/* Topics - mobile only */}
             <div className="md:hidden bg-card border border-border rounded-lg p-5">
               <h3 className="font-serif text-sm text-gold uppercase tracking-wider mb-4">
-                Argomenti
+                {t(lang, "about.topics_heading")}
               </h3>
               <ul className="grid grid-cols-2 gap-2">
-                {[
-                  "Fisica Quantistica",
-                  "Filosofia della mente",
-                  "Spiritualità comparata",
-                  "Coscienza e materia",
-                  "Metafisica occidentale",
-                ].map((topic) => (
+                {topics.map((topic) => (
                   <li
                     key={topic}
                     className="flex items-center gap-2 text-sm text-muted-foreground font-body"
@@ -171,7 +169,6 @@ export default function ChiSonoPage() {
               </ul>
             </div>
 
-            {/* Image closing */}
             <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-6 sm:mt-8">
               <div className="rounded-lg overflow-hidden border border-border">
                 <img
