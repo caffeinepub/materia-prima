@@ -22,6 +22,35 @@ export default function ArticoloPage() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
+  useEffect(() => {
+    if (!article) return;
+    // Update page title
+    document.title = `${displayTitle} — prima materia`;
+    // Update Open Graph meta tags for sharing
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    const ogImage = document.querySelector('meta[property="og:image"]');
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+    if (ogTitle) ogTitle.setAttribute("content", displayTitle);
+    if (ogImage && article.imageUrl)
+      ogImage.setAttribute("content", article.imageUrl);
+    if (ogDesc) ogDesc.setAttribute("content", displayExcerpt);
+    // Restore defaults on unmount
+    return () => {
+      document.title = "prima materia";
+      if (ogTitle) ogTitle.setAttribute("content", "prima materia");
+      if (ogImage)
+        ogImage.setAttribute(
+          "content",
+          "/assets/sufism-019d5205-2f09-7529-9b6b-01e94766a6fc.jpg",
+        );
+      if (ogDesc)
+        ogDesc.setAttribute(
+          "content",
+          "Dove la scienza incontra il trascendente.",
+        );
+    };
+  }, [article, displayTitle, displayExcerpt]);
+
   if (!article) {
     return (
       <div
